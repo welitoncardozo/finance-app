@@ -37,11 +37,13 @@ public class User {
     @Getter
     @Builder
     public static class Dto {
+        private final Integer id;
         private final String name;
         private final String email;
 
         public static Dto from(final User user) {
             return Dto.builder()
+                    .id(user.getId())
                     .name(user.getName())
                     .email(user.getEmail())
                     .build();

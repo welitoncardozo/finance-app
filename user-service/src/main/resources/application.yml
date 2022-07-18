@@ -1,10 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://host.minikube.internal:5432/postgres
     username: postgres
     password: postgres
-#  rabbitmq:
-#    host: host.minikube.internal
+  rabbitmq:
+    host: host.minikube.internal
   jpa:
     show-sql: false
     hibernate:

@@ -31,9 +31,9 @@ public class UserService {
                 .toList();
     }
 
-    public User.Dto findById(final Integer id) {
-        return repository.findById(id)
+    public User.Dto findByEmail(final String email) {
+        return repository.findByEmail(email)
                 .map(User.Dto::from)
-                .orElseThrow(() -> new BusinessException("User by ID %s not found.", id));
+                .orElseThrow(() -> new BusinessException("User by email %s not found.", email));
     }
 }

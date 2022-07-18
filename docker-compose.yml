@@ -1,23 +1,23 @@
 version: "3.2"
 services:
 
-#  rabbitmq-service:
-#    image: rabbitmq:3-management-alpine
-#    container_name: rabbitmq-service
-#    ports:
-#        - 5672:5672
-#        - 15672:15672
-#    volumes:
-#        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
-#        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
-#        - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
-#        - ./definitions.json:/etc/rabbitmq/definitions.json:ro
-#    networks:
-#        - rabbitmq_go_net
+  rabbitmq-service:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq-service
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+        - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+        - ./definitions.json:/etc/rabbitmq/definitions.json:ro
+    networks:
+        - rabbitmq_go_net
 
   postgres-service:
-    container_name: postgres-default
-    ports: 
+    container_name: postgres-service
+    ports:
         - "5432:5432"
     image: postgres
     environment: 
@@ -25,6 +25,6 @@ services:
         - POSTGRES_DB=postgres
         - POSTGRES_PASSWORD=postgres
 
-#networks:
-#  rabbitmq_go_net:
-#    driver: bridge
+networks:
+  rabbitmq_go_net:
+    driver: bridge

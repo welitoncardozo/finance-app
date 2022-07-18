@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-app-blue
+  namespace: finance-app
+  labels:
+    version: blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: user-app
+      namespace: finance-app
+  template:
+    metadata:
+      labels:
+        app: user-app
+        namespace: finance-app
+        version: blue
+    spec:
+      containers:
+        - name: user-app
+          image: welitoncardozo/user-service:blue
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080

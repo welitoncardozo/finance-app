@@ -29,14 +29,14 @@ public class UserResource {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping
-    public List<User.Dto> searchAll() {
-        return service.findAll();
+    @GetMapping("/{email}")
+    public User.Dto search(@PathVariable final String email) {
+        return service.findByEmail(email);
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/{id}")
-    public User.Dto search(@PathVariable final Integer id) {
-        return service.findById(id);
+    @GetMapping
+    public List<User.Dto> searchAll() {
+        return service.findAll();
     }
 }
