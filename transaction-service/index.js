@@ -5,8 +5,8 @@ const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const amqplib = require('amqplib/callback_api')
 
-const host = 'localhost';
-const queueName = 'transacoes'
+const host = 'host.minikube.internal';
+const queueName = 'transacoes';
 let channel = null;
 
 mongoose.Promise = global.Promise;
@@ -49,4 +49,4 @@ app.post('/transaction', (req, res) => {
         .catch(err => {
             res.status(400).send(err);
         });
-})
+});
