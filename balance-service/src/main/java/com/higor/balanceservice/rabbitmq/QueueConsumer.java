@@ -27,8 +27,7 @@ public class QueueConsumer {
         Gson gson = new Gson();
         TransacaoDto transacao = gson.fromJson(fileBody, TransacaoDto.class);
         
-        List<Saldo> saldos = saldoService.findByUsuarioId(transacao.getIdUser());
-        Saldo saldo = saldos.size() > 0 ? saldos.get(0) : new Saldo();
+        final Saldo saldo = saldoService.findByUsuarioId(transacao.getIdUser()).orElseGet(Saldo::new);
         saldo.setUsuarioId(transacao.getIdUser());
         
         BigDecimal total = saldo.getTotal() != null ? saldo.getTotal() : BigDecimal.ZERO;

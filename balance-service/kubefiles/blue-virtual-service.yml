@@ -18,11 +18,11 @@ spec:
           port:
             number: 9090
           subset: blue
-        weight: 70
+        weight: 100
       - destination:
           host: balance-service
           port:
             number: 9090
           subset: green
-        weight: 30
+        weight: 0
     

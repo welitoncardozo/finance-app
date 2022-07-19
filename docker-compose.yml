@@ -32,6 +32,16 @@ services:
         - POSTGRES_DB=postgres
         - POSTGRES_PASSWORD=postgres
 
+  postgres-service-secondary:
+    container_name: postgres-service-secondary
+    ports:
+      - "5431:5432"
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=postgres
+
 networks:
   rabbitmq_go_net:
     driver: bridge

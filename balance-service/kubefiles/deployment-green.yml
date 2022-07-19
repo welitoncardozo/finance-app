@@ -6,7 +6,7 @@ metadata:
   labels:
     version: green
 spec:
-  replicas: 2
+  replicas: 0
   selector:
     matchLabels:
       app: balance-app
