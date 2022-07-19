@@ -6,6 +6,7 @@ import com.welitoncardozo.userservice.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -31,9 +32,7 @@ public class UserService {
                 .toList();
     }
 
-    public User.Dto findByEmail(final String email) {
-        return repository.findByEmail(email)
-                .map(User.Dto::from)
-                .orElseThrow(() -> new BusinessException("User by email %s not found.", email));
+    public Optional<User> findByEmail(final String email) {
+        return repository.findByEmail(email);
     }
 }
