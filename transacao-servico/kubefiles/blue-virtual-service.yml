@@ -1,0 +1,28 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: transaction-service-stage-blue
+  namespace: finance-app
+spec:
+  gateways:
+    - finance-app-gateway
+  hosts:
+    - "*"
+  http:
+    - match:
+      - uri:
+          prefix: /transaction-service
+      route:
+      - destination:
+          host: transaction-service
+          port:
+            number: 8080
+          subset: blue
+        weight: 70
+      - destination:
+          host: transaction-service
+          port:
+            number: 8080
+          subset: green
+        weight: 30
+    
