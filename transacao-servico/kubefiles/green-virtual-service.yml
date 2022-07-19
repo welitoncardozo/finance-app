@@ -16,13 +16,13 @@ spec:
       - destination:
           host: transaction-service
           port:
-            number: 8080
+            number: 3000
           subset: blue
         weight: 30
       - destination:
           host: transaction-service
           port:
-            number: 8080
+            number: 3000
           subset: green
         weight: 70
     
