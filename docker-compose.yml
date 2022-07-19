@@ -15,6 +15,13 @@ services:
     networks:
         - rabbitmq_go_net
 
+  mongo-service:
+    image: 'mongo:latest'
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+
   postgres-service:
     container_name: postgres-service
     ports:
@@ -28,3 +35,6 @@ services:
 networks:
   rabbitmq_go_net:
     driver: bridge
+    
+volumes:
+  mongodb_data_container:
