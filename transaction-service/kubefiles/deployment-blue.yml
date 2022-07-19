@@ -2,25 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: transaction-app-blue
-  namespace: money-app
+  namespace: finance-app
   labels:
     version: blue
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: transaction-app
-      namespace: money-app
+      namespace: finance-app
   template:
     metadata:
       labels:
         app: transaction-app
-        namespace: money-app
+        namespace: finance-app
         version: blue
     spec:
       containers:
         - name: transaction-app
-          image: wesleyfuchter/transaction-service:blue
+          image: welitoncardozo/transaction-service:blue
           imagePullPolicy: Always
           ports:
             - containerPort: 3000

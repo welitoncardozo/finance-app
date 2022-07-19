@@ -2,10 +2,10 @@ apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: transaction-service-stage-green
-  namespace: money-app
+  namespace: finance-app
 spec:
   gateways:
-    - money-app-gateway
+    - finance-app-gateway
   hosts:
     - "*"
   http:

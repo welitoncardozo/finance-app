@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
   name: transaction-service-rule
-  namespace: money-app
+  namespace: finance-app
 spec:
   host: transaction-service
   subsets:

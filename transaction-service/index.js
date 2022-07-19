@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const amqplib = require('amqplib/callback_api')
 
 const host = 'host.minikube.internal';
-const queueName = 'transacoes';
+const queueName = 'transactions';
 let channel = null;
 
 mongoose.Promise = global.Promise;
@@ -37,7 +37,7 @@ app.use(cors());
 app.use(express.json());
 app.listen(3000);
 
-app.post('/transaction', (req, res) => {
+app.post('/transaction-service', (req, res) => {
     let transaction = new TransactionModel(req.body);
     transaction.save()
         .then(transacao => {
