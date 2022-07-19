@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: transaction-app
-          image: welitoncardozo/user-service:blue
+          image: welitoncardozo/transaction-service:blue
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
