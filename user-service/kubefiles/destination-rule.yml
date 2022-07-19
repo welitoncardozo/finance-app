@@ -4,7 +4,7 @@ metadata:
   name: user-service-rule
   namespace: finance-app
 spec:
-  host: finance-service
+  host: user-service
   subsets:
   - name: blue
     labels:
